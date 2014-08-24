@@ -1,4 +1,4 @@
 == EDForumTracker
 
-This is a small Rails 4.2 project to scrape, cache and present posts made by Frontier employees to the Frontier Forums. This is to help track down interesting information in amongst the sea of activity on the Forums.
+This is a small Rails 4.2 project to scrape, cache and present posts made by Frontier employees to the Frontier Forums. This is to help track down interesting information in amongst the sea of regular activity.
 
