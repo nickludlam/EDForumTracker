@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     if session[:last_post_id]
       @posts = Post.where("forum_post_id > ?", session[:last_post_id]).order("forum_post_id DESC")
     else
-      @posts = Post.all.order("forum_post_id DESC")
+      @posts = Post.all.order("forum_post_id DESC").limit(50)
     end
     @authors = Author.all
     @quips = QUIPS
