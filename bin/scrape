@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Hacked together script to run in the background via cron
+cd /var/www/EDForumTracker
+. /home/nick/.rvm/environments/ruby-2.1.2
+bundle exec rake RAILS_ENV=production scraper:scrape 2>&1 > /tmp/scraper.log
