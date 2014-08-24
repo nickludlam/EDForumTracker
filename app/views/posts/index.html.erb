@@ -1,0 +1,15 @@
+<p style="color: #999"><small>This site tracks posts made to the <a href="http://forums.frontier.co.uk">Frontier Forums</a> from the following known Frontier employees: <%= @authors.collect { |a| a.name || "ID:#{a.forum_id}" }.join(", ") %>.</small></p>
+
+<div style="margin-top: 30px">
+  <% if @posts.empty? %>
+    <p><strong class="tfoot_ahover"><%= @quips.sample %></strong>
+      The Frontier team are working on the game rather than posting to the forums since you last checked.</p>
+      <%= button_to 'See old posts', clear_session_posts_path, method: :post, class: 'btn btn-primary' %>
+  <% else %>
+    <h3>Tracking posts from 
+    <% @posts.each do |p| %>
+      <%= raw p.body %>
+    <% end %>
+  <% end %>
+</div>
+
