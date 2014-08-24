@@ -1,6 +1,14 @@
 #!/bin/sh
 
-# Hacked together script to run in the background via cron
-cd /var/www/EDForumTracker
+# House all the environment stuff in the script so the cron entry can be minimal:
+#  */15 * * * * /var/www/EDForumTracker/bin/scrape
+
+export RAILS_ENV=production
+export EXECJS_RUNTIME="Node"
+export PATH="$PATH:/usr/local/bin"
+
 . /home/nick/.rvm/environments/ruby-2.1.2
-bundle exec rake RAILS_ENV=production scraper:scrape 2>&1 > /tmp/scraper.log
+
+cd /var/www/EDForumTracker
+bundle exec rake scraper:scrape 2>&1 > /tmp/scraper.log
+
