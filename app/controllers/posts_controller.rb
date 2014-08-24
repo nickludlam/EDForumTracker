@@ -3,7 +3,10 @@ class PostsController < ApplicationController
   QUIPS = ['Cool your jets, son!', 'You again??', 'Not so fast!', 'Haven\'t you got anything better to do?',
            'These things don\'t write themselves, you know!', 'Nope, nothing\'s changed.',
            'Maybe you could post something yourself!', 'Go stick your head in a pig!', 'Look, Thargoids!',
-           'Busy day, I see.', 'No, nothing\'s changed!', 'There\'s always old episodes of Lave Radio!' ]
+           'Busy day, I see.', 'No, nothing\'s changed!', 'There\'s always old episodes of Lave Radio!',
+           'Nothing to seem, move along.', 'This isn\'t the page you\'re looking for, move along.',
+           'Try reddit.com/r/EliteDangerous/ instead.', '100 CR fine for loitering near this tracker!',
+           'Warning! Flight Assist off!', 'Mass locked!' ]
   def index
     if session[:last_post_id]
       @posts = Post.where("forum_post_id > ?", session[:last_post_id]).order("forum_post_id DESC")
