@@ -2,7 +2,7 @@
 
 <div style="margin-top: 30px">
   <% if @posts.empty? %>
-    <p><strong class="tfoot_ahover"><%= @quips.sample %></strong>
+    <p><strong class="tfoot_ahover"><%= @quip %></strong>
       The Frontier team are working on the game rather than posting to the forums since you last checked.</p>
       <%= button_to 'See old posts', clear_session_posts_path, method: :post, class: 'btn btn-primary' %>
   <% else %>
