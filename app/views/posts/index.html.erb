@@ -2,17 +2,16 @@
 
 
   <% if @posts.empty? %>
-    <div style="margin-top: 30px">
-      <p><strong class="tfoot_ahover"><%= @quip %></strong>
-        The Frontier team are working on the game rather than posting to the forums since you last checked.</p>
-        <%= button_to 'See old posts', clear_session_posts_path, method: :post, class: 'btn btn-primary' %>
-    </div>
-  <% else %>
-    <div style="margin-top: 30px" id="edtrack-postscontainer">
+  <div style="margin-top: 30px">
+    <p><strong class="tfoot_ahover"><%= @quip %></strong>
+      The Frontier team are working on the game rather than posting to the forums since you last checked.</p>
+      <%= button_to 'See old posts', clear_session_posts_path, method: :post, class: 'btn btn-primary' %>
+      </div>
+  <% end %>
+  <div style="margin-top: 30px" id="edt-posts">
+    <% unless @posts.empty %>
       <% @posts.each do |p| %>
         <%= raw p.body %>
       <% end %>
-    </div>
-  <% end %>
-</div>
-
+    <% end %>
+  </div>
