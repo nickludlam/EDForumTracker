@@ -3,6 +3,7 @@ require 'open-uri'
 class Author < ActiveRecord::Base
   has_many :posts, dependent: :delete_all
   validates_uniqueness_of :forum_id
+  default_scope { order('forum_id ASC') }
   
   AUTHOR_STATS_URL_PREFIX = "http://forums.frontier.co.uk/member.php?u=%d"
   AUTHOR_POSTS_URL_PREFIX = "http://forums.frontier.co.uk/search.php?do=finduser&u=%d"
