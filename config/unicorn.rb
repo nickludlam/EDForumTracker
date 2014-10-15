@@ -2,7 +2,7 @@
  
 # Set environment to development unless something else is specified
 env = ENV["RAILS_ENV"] || "production"
-RAILS_ROOT = "/var/www/EDForumTracker"
+RAILS_ROOT = "/var/www/EDForumTracker/current"
  
 ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
 require 'bundler/setup'
