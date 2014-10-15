@@ -32,8 +32,11 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# For deployment
+gem 'capistrano', '~> 3.1'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rbenv', '~> 2.0'
 
 # Beautify
 gem 'bootstrap-sass-rails'
