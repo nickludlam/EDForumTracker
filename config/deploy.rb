@@ -26,11 +26,6 @@ set :linked_files, %w{config/database.yml}
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log db tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-set(:config_files, %w(
-  database.example.yml
-  unicorn.rb
-))
-
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
@@ -42,8 +37,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      sudo "/etc/init.d/unicorn restart #{fetch(:full_app_name)}"
     end
   end
 
