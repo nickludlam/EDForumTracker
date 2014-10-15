@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:nickludlam/EDForumTracker.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/eft.recoil.org'
+set :deploy_to, "var/www/#{application}"
 
 # Default value for :pty is false
 # set :pty, true
@@ -37,7 +37,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      sudo "/etc/init.d/unicorn restart #{fetch(:full_app_name)}"
+      execute "/etc/init.d/unicorn restart #{fetch(:full_app_name)}"
     end
   end
 
