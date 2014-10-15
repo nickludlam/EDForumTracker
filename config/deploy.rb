@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:nickludlam/EDForumTracker.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "var/www/EDForumTracker"
+set :deploy_to, "/var/www/EDForumTracker"
 
 # Default value for :pty is false
 # set :pty, true
