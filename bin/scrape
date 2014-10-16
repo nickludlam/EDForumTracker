@@ -5,10 +5,12 @@
 
 export RAILS_ENV=production
 export EXECJS_RUNTIME="Node"
-export PATH="$PATH:/usr/local/bin"
 
-. /home/nick/.rvm/environments/ruby-2.1.2
+if [ -d $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
-cd /var/www/EDForumTracker
+cd /var/www/EDForumTracker/current
 bundle exec rake scraper:scrape 2>&1 > /tmp/scraper.log
 
