@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # House all the environment stuff in the script so the cron entry can be minimal:
-#  */15 * * * * /var/www/EDForumTracker/bin/scrape
+#  */15 * * * * /var/www/EDForumTracker/current/bin/scrape
 
 export RAILS_ENV=production
 export EXECJS_RUNTIME="Node"
+export PATH="$PATH:/usr/local/bin"
 
 if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
