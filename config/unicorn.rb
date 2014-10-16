@@ -33,7 +33,7 @@ if env == "production"
   working_directory RAILS_ROOT
  
   # feel free to point this anywhere accessible on the filesystem
-  user 'www-data', 'www-data'
+  user 'deploy', 'deploy'
   shared_path = RAILS_ROOT
  
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
