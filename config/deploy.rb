@@ -37,7 +37,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute "/etc/init.d/unicorn restart #{fetch(:full_app_name)}"
+      execute "/etc/init.d/unicorn reload #{fetch(:full_app_name)}"
     end
   end
 
