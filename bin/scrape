@@ -6,6 +6,7 @@
 export RAILS_ENV=production
 export EXECJS_RUNTIME="Node"
 export PATH="$PATH:/usr/local/bin"
+export FORCE=1
 
 if [ -d $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
@@ -13,5 +14,5 @@ if [ -d $HOME/.rbenv ]; then
 fi
 
 cd /var/www/EDForumTracker/current
-bundle exec rake scraper:scrape 2>&1 > /tmp/scraper.log
+bundle exec rake scraper:scrape
 
