@@ -1,393 +1,181 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta name="generator" content="vBulletin 3.8.7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://forums.frontier.co.uk" />
+<meta name="generator" content="vBulletin 4.2.2" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
 
-<meta name="keywords" content="Frontier, playstation, playstation2, xbox, pc game, games, elite, elite 4, jobs, software, developer, infestation, zarch, v2000, virus, braben, darkside, darxide, darxide-emp, mobile, xbox360, playstation3, nintendo, wii, discussion, support, lost winds, outsider, video games, family entertainment, fun, online gaming, community" />
-<meta name="description" content="Discussion forum for Frontier Developments community. A place to talk about video games, entertainment and games developed by Frontier." />
+	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
 
-<!-- CSS Stylesheet -->
-<style type="text/css" id="vbulletin_css">
-body
-{
-	background: #444343 url(http://forums.frontier.co.uk/skins/elite/Elite-background-image-1px2.jpg) repeat-y top center;
-	color: #FFFFFF;
-	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-	margin: 0; padding: 0;
-}
-a:link, body_alink
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-a:visited, body_avisited
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-a:hover, a:active, body_ahover
-{
-	color: #FF4400;
-	text-decoration: none;
-}
-.page
-{
-	color: #FFFFFF;
-}
-td, th, p, li
-{
-	color: #FFFFFF;
-	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.tborder
-{
-	background: #333832 url(http://forums.frontier.co.uk/skins/frontier/Category-strip.jpg) repeat-x top left;
-	color: #CCCCCC;
-}
-.tcat
-{
-	background: #333832 url(http://forums.frontier.co.uk/skins/elite/Category-strip5.jpg) repeat-x top left;
-	color: #FFFFFF;
-	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.tcat a:link, .tcat_alink
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.tcat a:visited, .tcat_avisited
-{
-	color: #ffffff;
-	text-decoration: none;
-}
-.tcat a:hover, .tcat a:active, .tcat_ahover
-{
-	color: #FFFF66;
-	text-decoration: underline;
-}
-.thead
-{
-	background: #734700 url(http://forums.frontier.co.uk/skins/frontier/Subcategory-strip.jpg) repeat-x top left;
-	color: #FFFFFF;
-	font: bold 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.thead a:link, .thead_alink
-{
-	color: #FFFFFF;
-}
-.thead a:visited, .thead_avisited
-{
-	color: #FFFFFF;
-}
-.thead a:hover, .thead a:active, .thead_ahover
-{
-	color: #FFFFCC;
-}
-.tfoot
-{
-	background: #8f8e8e url(http://forums.frontier.co.uk/skins/elite/Category-strip3.jpg) repeat-x top left;
-	color: #E0E0F6;
-}
-.tfoot a:link, .tfoot_alink
-{
-	color: #E0E0F6;
-}
-.tfoot a:visited, .tfoot_avisited
-{
-	color: #E0E0F6;
-}
-.tfoot a:hover, .tfoot a:active, .tfoot_ahover
-{
-	color: #FFFF66;
-}
-.alt1, .alt1Active
-{
-	background: #232222;
-	color: #FFFFFF;
-}
-.alt1 a:link, .alt1_alink, .alt1Active a:link, .alt1Active_alink
-{
-	text-decoration: underline;
-}
-.alt1 a:visited, .alt1_avisited, .alt1Active a:visited, .alt1Active_avisited
-{
-	text-decoration: underline;
-}
-.alt1 a:hover, .alt1 a:active, .alt1_ahover, .alt1Active a:hover, .alt1Active a:active, .alt1Active_ahover
-{
-	text-decoration: underline;
-}
-.alt2, .alt2Active
-{
-	background: #302f2f;
-	color: #FFFFFF;
-}
-.alt2 a:link, .alt2_alink, .alt2Active a:link, .alt2Active_alink
-{
-	text-decoration: none;
-}
-.alt2 a:visited, .alt2_avisited, .alt2Active a:visited, .alt2Active_avisited
-{
-	text-decoration: none;
-}
-.alt2 a:hover, .alt2 a:active, .alt2_ahover, .alt2Active a:hover, .alt2Active a:active, .alt2Active_ahover
-{
-	text-decoration: none;
-}
-.inlinemod
-{
-	background: #FFFFCC;
-	color: #000000;
-}
-.wysiwyg
-{
-	background: #444343;
-	color: #FFFFFF;
-	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-	margin: 5px 10px 10px 10px;
-	padding: 0px;
-}
-.wysiwyg a:link, .wysiwyg_alink
-{
-	color: #22229C;
-}
-.wysiwyg a:visited, .wysiwyg_avisited
-{
-	color: #22229C;
-}
-.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
-{
-	color: #FF4400;
-}
-textarea, .bginput
-{
-	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.bginput option, .bginput optgroup
-{
-	font-size: 10pt;
-	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.button
-{
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-select
-{
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-option, optgroup
-{
-	font-size: 11px;
-	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.smallfont
-{
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.time
-{
-	color: #666686;
-}
-.navbar
-{
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.highlight
-{
-	color: #FF0000;
-	font-weight: bold;
-}
-.fjsel
-{
-	background: #3E5C92;
-	color: #000000;
-}
-.fjdpth0
-{
-	background: #F7F7F7;
-	color: #000000;
-}
-.fjdpth1
-{
-	color: #000000;
-}
-.fjdpth2
-{
-	color: #000000;
-}
-.fjdpth3
-{
-	color: #000000;
-}
-.fjdpth4
-{
-	color: #000000;
-}
-.panel
-{
-	background: #444343;
-	color: #CCCCCC;
-	padding: 10px;
-	border: 2px outset;
-}
-.panelsurround
-{
-	background: #915801;
-	color: #CCCCCC;
-}
-legend
-{
-	color: #CCCCCC;
-	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-}
-.vbmenu_control
-{
-	background: #995e02 url(http://forums.frontier.co.uk/skins/frontier/Subcategory-strip.jpg)repeat-x top left;
-	color: #FFFFFF;
-	font: bold 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-	padding: 3px 6px 3px 6px;
-	white-space: nowrap;
-}
-.vbmenu_control a:link, .vbmenu_control_alink
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.vbmenu_control a:visited, .vbmenu_control_avisited
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
-{
-	color: #FFFFFF;
-	text-decoration: underline;
-}
-.vbmenu_popup
-{
-	background: #FFFFFF;
-	color: #000000;
-	border: 1px solid #0B198C;
-}
-.vbmenu_option
-{
-	background: #fff6e6;
-	color: #000000;
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-	white-space: nowrap;
-	cursor: pointer;
-}
-.vbmenu_option a:link, .vbmenu_option_alink
-{
-	color: #22229C;
-	text-decoration: none;
-}
-.vbmenu_option a:visited, .vbmenu_option_avisited
-{
-	color: #22229C;
-	text-decoration: none;
-}
-.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.vbmenu_hilite
-{
-	background: #8A949E;
-	color: #FFFFFF;
-	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
-	white-space: nowrap;
-	cursor: pointer;
-}
-.vbmenu_hilite a:link, .vbmenu_hilite_alink
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-/* ***** styling for 'big' usernames on postbit etc. ***** */
-.bigusername { font-size: 14pt; }
 
-/* ***** small padding on 'thead' elements ***** */
-td.thead, th.thead, div.thead { padding: 4px; }
+		<meta name="keywords" content="Frontier, playstation, playstation2, xbox, pc game, games, elite, elite 4, jobs, software, developer, infestation, zarch, v2000, virus, braben, darkside, darxide, darxide-emp, mobile, xbox360, playstation3, nintendo, wii, discussion, support, lost winds, outsider, video games, family entertainment, fun, online gaming, community" />
+		<meta name="description" content="Official discussion forum for the Frontier Developments community. A place to talk about video games, entertainment and games developed by Frontier." />
 
-/* ***** basic styles for multi-page nav elements */
-.pagenav a { text-decoration: none; }
-.pagenav td { padding: 2px 4px 2px 4px; }
+<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin-core.js?v=422"></script>
+	<link rel="alternate" type="application/rss+xml" title="Frontier Forums RSS Feed" href="http://forums.frontier.co.uk/external.php?type=RSS2" />
+	<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css," />
 
-/* ***** de-emphasized text */
-.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
-a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
-.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+	<title>Elite Forums Tracker</title>
+	
+	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_generic.js?v=422"></script>
+	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_visitormessage.js?v=422"></script>
+	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_activitystream.js?v=422"></script>
+	<script type="text/javascript">
 
-/* ***** define margin and font-size for elements inside panels ***** */
-.fieldset { margin-bottom: 6px; }
-.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
-.spoiler div{border:ridge; border-bottom-color:#999999; border-top-color:#999999; border-left-color:#999999; border-right-color:#999999; border-bottom-width:thin; border-top-width:thin; border-left-width:thin; border-right-width:thin;
+	<!--
+	var isIE7 = navigator.userAgent.toLowerCase().indexOf('msie 7') != -1;
+	var isIE = navigator.userAgent.toLowerCase().indexOf('msie') != -1;
+	var isIE6 = navigator.userAgent.toLowerCase().indexOf('msie 6') != -1;
+	var THISUSERID = 32574;
+
+
+	vB_XHTML_Ready.subscribe(init_PostBits_Lite);
+
+	function init_PostBits_Lite()
+	{
+		var postbits = YAHOO.util.Dom.getElementsByClassName("postbit_lite", "li", "postlist");
+		for (var i = 0; i < postbits.length; i++)
+		{
+			new PostBit_Lite(postbits[i]);
+		}
+	}
+
+	function PostBit_Lite(postbit)
+	{
+		this.postbit = YAHOO.util.Dom.get(postbit);
+		this.postid = postbit.id.substr("piccom_".length);
+		this.inlinemod = new InlineModControl(this.postbit, this.postid, "imodsel");
+	}
+
+	function getParentElement(starterElement, classPattern, testTagName) {
+		var currElement = starterElement;
+		var foundElement = null;
+		while(!foundElement && (currElement = currElement.parentNode)) {
+			if ((classPattern && (currElement.className.indexOf(classPattern) != -1)) || (testTagName && (testTagName.toLowerCase() == currElement.tagName.toLowerCase()))) 
+			{
+				foundElement = currElement;
+			}
+		}
+		//go up the parentNode tree until found element with matching className
+		return foundElement;
+	}
+
+	//getParentElement
+	function tabViewPicker(anchorObject) {
+		var clickedTabId = null;
+		var tabtree = getParentElement(anchorObject,"tabslight");
+		var anchorInventory = tabtree.getElementsByTagName("a");
+
+		var tabIds = [];
+		for (var i=0; (currAnchor = anchorInventory[i]); i++) {
+			var anchorId = currAnchor.href.substring(currAnchor.href.indexOf("#") + 1, currAnchor.href.length);
+			var parentDd = getParentElement(currAnchor,null,"dd");
+			if (currAnchor == anchorObject) {
+				clickedTabId = anchorId;
+				parentDd.className = "userprof_module";
+			}
+			else
+			{
+				parentDd.className = "userprof_moduleinactive";
+			}
+			tabIds.push(anchorId);
+		}
+	
+		//loop thru anchors to gather all tab IDs and set appropriate selected status
+		for (var j=0; (currTabId = tabIds[j]); j++) {
+			var elem = document.getElementById("view-" + currTabId);
+			if (!elem) {continue;}
+			if (currTabId == clickedTabId) {
+				//elem.className="selected_view_section";
+				YAHOO.util.Dom.replaceClass(elem, "view_section", "selected_view_section");
+			}
+			else
+			{
+				//elem.className="view_section";
+				YAHOO.util.Dom.replaceClass(elem, "selected_view_section", "view_section");
+			}
+		}
+
+		//set appropriate status on all tabs.
+		return false;
+	}
+	//-->
+    </script>
+
+	
+		<script type="text/javascript">
+		<!--
+		function goto_post_pm()
+		{
+			tabViewPicker(document.getElementById('visitor_messaging-tab'));
+			fetch_object('view-visitor_messaging').scrollIntoView();
+
+			var textarea = fetch_object('visitor_message_form_textarea');
+			if (textarea)
+			{
+				textarea.focus();
+				textarea.select();
+			}
+			return false;
+		}
+		//-->
+		</script>
+	
+
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=activitystream.css,sidebar.css,forumbits.css,postbit.css,postbit-lite.css,showthread.css,member.css,user,32574" />
+	
+
+	<style type="text/css"></style>
+
+	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=sidebar-ie.css,member-ie.css,postbit-lite-ie.css" /><![endif]-->
+
+	
+
+	
+		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?userid=32574&cssuid=0&d=1414253213&td=ltr&styleid=0&sheet=userprofile.css" />
+		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=additional.css" />
+
+<style>
+html, .body_wrapper, .above_body {
+  background-color: #fff;
 }
+
+div.excerpt { 
+  font-size: 130%;
 }
-.post a {
-color:#d48101[/color];
-background :none;
-}
-.post a:hover {
-color: #FF4400[/color];
-background:none;
-}
+
+.title a {
+  color: rgb(220, 70, 0) !important;
 }
 </style>
-<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/clientscript/vbulletin_important.css?v=387" />
-
-
-<!-- / CSS Stylesheet -->
-
-<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/yui/yahoo-dom-event/yahoo-dom-event.js?v=387"></script>
-<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/yui/connection/connection-min.js?v=387"></script>
-<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_global.js?v=387"></script>
-<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_menu.js?v=387"></script>
-
-<title>Elite Forums Tracker</title>
 
 </head>
+
 <body>
-<a name="top"></a>
-<table border="0" width="882" cellpadding="0" cellspacing="0" align="center">
-<tr>
-	<td align="left"><a href="http://forums.frontier.co.uk/"><%= image_tag "customheader.png" %></a></td>
-	<td align="right" id="header_right_cell">
-		&nbsp;
-	</td>
-</tr>
-</table>
-<!-- /logo -->
+	<div class="above_body"> <!-- closing tag is in template navbar -->
+<div id="header" class="floatcontainer doc_header">
+	<div><a name="top" href="forum.php" class="logo-image"><img src="http://forums.frontier.co.uk/images/frontier/frontierLogo.png" alt="Frontier Forums" /></a></div>
+</div><!-- closing div for above_body -->
 
-<div align="center">
-  <div class="page" style="width:882px; text-align:left">
-    <div style="padding:0px 0px 0px 0px" align="left">
-    <br />
+<div class="body_wrapper">
+  <ul id="activitylist">
+    <%= yield %>
+  </ul>
+</div>
 
-<%= yield %>
-
-    </div>
-    
-    <div style="margin-top: 30px; border-top: 1px solid #666">
-      <p><a href="https://github.com/nickludlam/EDForumTracker">Made</a> in August 2014 by <strong><a href="http://nick.recoil.org/">Commander Bewilderbeest</a></strong>, with moral support and inspiration from <strong>Commander Yan</strong>.</p>
-    </div>
-
-    
+<div class="below_body">
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	
+	<!-- Do not remove this copyright notice -->	
+</div>
+  <div id="footer_morecopyright" class="shade footer_morecopyright">
+      <a href="https://github.com/nickludlam/EDForumTracker">Made</a> in 2014 by <strong><a href="http://nick.recoil.org/">Commander Bewilderbeest</a></strong>, with moral support and inspiration from <strong>Commander Yan</strong>.
   </div>
 </div>
 

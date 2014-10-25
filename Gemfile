@@ -42,6 +42,7 @@ gem 'capistrano-rbenv', '~> 2.0'
 gem 'bootstrap-sass-rails'
 
 # Scraper
+gem 'mechanize'
 gem 'nokogiri'
 
 group :development, :test do

@@ -5,54 +5,65 @@ class Author < ActiveRecord::Base
   validates_uniqueness_of :forum_id
   default_scope { order('forum_id ASC') }
   
-  AUTHOR_STATS_URL_PREFIX = "http://forums.frontier.co.uk/member.php?u=%d"
-  AUTHOR_POSTS_URL_PREFIX = "http://forums.frontier.co.uk/search.php?do=finduser&u=%d"
+  FORUM_SITE = "http://forums.frontier.co.uk/"
+  AUTHOR_STATS_URL = "#{FORUM_SITE}member.php?u=%d"
+  AUTHOR_POSTS_URL = "#{FORUM_SITE}search.php?do=finduser&userid=%d&contenttype=vBForum_Post&showposts=1"
+  AUTHOR_ACTIVITY_URL = "#{FORUM_SITE}/member.php?u=%d&tab=activitystream&type=user"
   
-  def current_forum_post_count
-    author_doc = Nokogiri::HTML(open(AUTHOR_STATS_URL_PREFIX % forum_id))
+  def cache_posts_with_agent(agent, replace_existing=false)
+    page = agent.get(AUTHOR_ACTIVITY_URL % forum_id)
+    activity_doc = Nokogiri::HTML(page.body)
     
-    post_count_label = author_doc.at('span:contains("Total Posts")')
-    if post_count_label
-      current_post_count = post_count_label.parent.children.last.text.to_i
-      return current_post_count 
-    else
-      logger.warn("Failed to find the post count span for author id #{forum_id}")
-      return 0
+    # If they've changed their display name, or we don't yet have it
+    post_author_name = activity_doc.css(".lastnavbit span").text
+    update_attribute(:name, post_author_name) if name != post_author_name
+    
+    # Loop through the activity and cache the blocks
+    post_elements = activity_doc.css("ul#activitylist li.forum_post")
+    post_elements.each do |post|
+      thread_link = post.css("div.fulllink a")
+      if thread_link
+        thread_url = thread_link.attribute("href").text
+        post_id = thread_url.match(/post(\d+)/)[1].to_i
+        
+        if Post.where(["author_id = ? AND forum_post_id = ?", forum_id, post_id]).count > 0
+          break unless replace_existing
+        end
+        
+        create_normalized_post(post_id, post.to_s, replace_existing)
+      else
+        logger.debug("Failed to find the fulllink element")
+      end
     end
   end
   
   def cache_new_posts(replace_existing=false)
     logger.debug("Starting cache_new_posts")
-    posts_doc = Nokogiri::HTML(open(Author::AUTHOR_POSTS_URL_PREFIX % forum_id))
-    threads_list_element = posts_doc.css("table#threadslist")[0]
-    if threads_list_element
-      while threads_list_element = threads_list_element.next_sibling
-        if threads_list_element.attributes["id"] && threads_list_element.attributes["id"].text =~ /post(\d+)/
-          # Its a snippet, so grab the HTML
-          post_id = threads_list_element.attributes["id"].text.match(/post(\d+)/)[1].to_i
-          
-          # These contain: Replies, Views, Posted by, and the excerpt
-          if threads_list_element.css("div.smallfont").count == 4
-            post_author_name = threads_list_element.css("div.smallfont")[2].children[1].text
-            update_attribute(:name, post_author_name) if name != post_author_name
-          end
-          
-          # We don't want to store posts we've previously fetched, unless we're forcing a replacement
-          if Post.where(["author_id = ? AND forum_post_id = ?", forum_id, post_id]).count > 0
-            break unless replace_existing
-          end
-          
-          create_normalized_post(post_id, threads_list_element.to_s, replace_existing)
-        end
+    posts_doc = Nokogiri::HTML(open(Author::AUTHOR_POSTS_URL % forum_id))
+    
+    post_list_element = posts_doc.css("#searchbits .postbitcontainer")
+    logger.error("Found post list count of #{post_list_element.count} for author with forum_id #{forum_id}")
+    
+    post_list_element.each do |post_li|
+      post_id = post_li.attributes["id"].text.match(/post_(\d+)/)[1].to_i
+      logger.debug("Evaluating post #{post_id} for author #{forum_id} (#{name})")
+      post_author_name = post_li.css("div.username_container a")[1].text
+      # Update the stored author name if it doesn't match our records
+      update_attribute(:name, post_author_name) if name != post_author_name
+      
+      if Post.where(["author_id = ? AND forum_post_id = ?", forum_id, post_id]).count > 0
+        break unless replace_existing
       end
+      
+      create_normalized_post(post_id, post_li.to_s, replace_existing)
     end
     
     logger.debug("Finished cache_new_posts")
   end
   
   def create_normalized_post(post_id, body, find_existing=false)
-    body.gsub!(/src="/, "src=\"http://forums.frontier.co.uk/")
-    body.gsub!(/href="/, "href=\"http://forums.frontier.co.uk/")
+    body.gsub!(/src="/, "src=\"#{FORUM_SITE}")
+    body.gsub!(/href="/, "href=\"#{FORUM_SITE}")
     
     if find_existing && p = Post.find_by_forum_post_id(post_id)
       p.update_attributes(body: body)
