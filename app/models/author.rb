@@ -19,7 +19,7 @@ class Author < ActiveRecord::Base
     update_attribute(:name, post_author_name) if name != post_author_name
     
     # Loop through the activity and cache the blocks
-    post_elements = activity_doc.css("ul#activitylist li.forum_post")
+    post_elements = activity_doc.css("ul#activitylist li.activitybit")
     post_elements.each do |post|
       thread_link = post.css("div.fulllink a")
       if thread_link
