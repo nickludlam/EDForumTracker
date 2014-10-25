@@ -13,6 +13,11 @@ if [ -d $HOME/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+# Pull in any custom environment variables we might have
+if [ -f ~/.edtracker ]; then
+    . ~/.edtracker
+fi
+
 cd /var/www/EDForumTracker/current
 bundle exec rake scraper:scrape
 
