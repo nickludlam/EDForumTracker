@@ -20,20 +20,43 @@ class Author < ActiveRecord::Base
     
     # Loop through the activity and cache the blocks
     post_elements = activity_doc.css("ul#activitylist li.activitybit")
-    post_elements.each do |post|
-      thread_link = post.css("div.fulllink a")
-      if thread_link
-        thread_url = thread_link.attribute("href").text
-        post_id = thread_url.match(/post(\d+)/)[1].to_i
+
+    logger.debug("Found #{post_elements.count} post elements to traverse")
+    if post_elements.count == 0
+      logger.warn("Found no posts!")
+      logger.warn(page.body)
+    else
+      post_elements.each do |post|
+        thread_link = post.css("div.fulllink a")
+        if thread_link
+          thread_url = thread_link.attribute("href").text
+          
+          if post_match = thread_url.match(/post(\d+)/)
+            post_id = post_match[1].to_i
+          else
+            # Thread query
+            logger.warn("Found a new thread URL #{thread_url}. Opening...")
+            thread_start_doc = Nokogiri::HTML(open(FORUM_SITE + thread_url))
+            thread_anchor = thread_start_doc.css("span.nodecontrols a.postcounter")
+            thread_url = thread_anchor.attribute("href").text
+            
+            if post_match = thread_url.match(/post(\d+)/)
+              post_id = post_match[1].to_i
+            else
+              logger.warn("Failed to get URL for thread from #{thread_url}")
+              break
+            end
+          end
         
-        if Post.where(["author_id = ? AND forum_post_id = ?", forum_id, post_id]).count > 0
-          break unless replace_existing
+          if Post.where(["author_id = ? AND forum_post_id = ?", forum_id, post_id]).count > 0
+            break unless replace_existing
+          end
+        
+          create_normalized_post(post_id, post.to_s, replace_existing)
+        else
+          logger.debug("Failed to find the fulllink element")
         end
-        
-        create_normalized_post(post_id, post.to_s, replace_existing)
-      else
-        logger.debug("Failed to find the fulllink element")
-      end
+      end      
     end
   end
   
