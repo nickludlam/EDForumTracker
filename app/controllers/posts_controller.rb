@@ -5,11 +5,16 @@ class PostsController < ApplicationController
            'Maybe you could post something yourself!', 'Go stick your head in a pig!', 'Look, Thargoids!',
            'Busy day, I see.', 'No, nothing\'s changed!', 'There\'s always old episodes of Lave Radio!',
            'Nothing to seem, move along.', 'This isn\'t the page you\'re looking for, move along.',
-           'Try reddit.com/r/EliteDangerous/ instead.', '100 CR fine for loitering near this tracker!',
+           'Try reddit.com/r/EliteDangerous instead.', '100 CR fine for loitering near this tracker!',
            'Warning! Flight Assist off!', 'Mass locked!', 'Clearly no-one\'s said \'Yaw is nerfed\' today.',
            'The mugs must be flying in Cambridge.', 'They must all be fishing on Chango.',
            'Obviously there\'s not enough discussion about \'griefing\' today.',
-           'There\'s no such thing as too much play-testing!' ]
+           'There\'s no such thing as too much play-testing!', 'Back to finding that Class A FSD upgrade, Commander!',
+           'New posts have unfortunately been interdicted en route.', 'WARNING: Your reputation is too low to view new posts.',
+           'Commander you do not have the correct permit to view new posts.', 'An emergency at Chango Dock has sadly delayed any new information.', 'Damnn, nothing! Why not go buy some ship paint jobs from store.zaonce.net?',
+           'Supply of new dev posts has hit an all time low.', 'Due to unprecedented demand, new posts are restricted!',
+           'Hostile Commander detected. Please consider some philanthropic missions!', 'Right on, Commander!'
+          ]
   
   def index
     @authors = Author.all

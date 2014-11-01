@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
   <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
-  <%= favicon_link_tag 'favicon.ico' %>
+  <%= favicon_link_tag '/favicon.ico' %>
 
   <meta name="keywords" content="Frontier, Forum, Tracker, Devs, Staff, Filter" />
   <meta name="description" content="Commander Bewilderbeest's Elite Forum Tracker, showing you staff posts to the Frontier Forums" />
@@ -28,16 +28,30 @@
   <style type="text/css">
   /* Some custom styles to help things stand out a bit more */
   
-  html, .body_wrapper, .above_body {
-    background-color: #fff;
+  .body_wrapper {
+    margin-top: 20px;
+    border-top: 2px solid #999;
   }
-
+  
+/*  .body_wrapper, .above_body {
+    background-color: #000;
+    padding-bottom: 20px;
+  }
+*/
   div.excerpt { 
     font-size: 130%;
   }
 
   .title a {
     color: rgb(220, 70, 0) !important;
+  }
+  
+  .below_body, #footer_morecopyright {
+    background-color: white;
+  }
+  
+  .eft_footer {
+    text-align: center;
   }
   </style>
 
@@ -56,12 +70,7 @@
 </div>
 
 <div class="below_body">
-<div id="footer_copyright" class="shade footer_copyright">
-	<!-- Do not remove this copyright notice -->
-	
-	<!-- Do not remove this copyright notice -->	
-</div>
-  <div id="footer_morecopyright" class="shade footer_morecopyright">
+  <div class="eft_footer">
       <a href="https://github.com/nickludlam/EDForumTracker">Made</a> in 2014 by <strong><a href="http://nick.recoil.org/">Commander Bewilderbeest</a></strong>, with moral support and inspiration from <strong>Commander Yan</strong> and <strong>Commander Athan</strong>.
   </div>
 </div>
