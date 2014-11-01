@@ -1,165 +1,52 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://forums.frontier.co.uk" />
-<meta name="generator" content="vBulletin 4.2.2" />
-<meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
-	<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />
+  <%= favicon_link_tag 'favicon.ico' %>
 
+  <meta name="keywords" content="Frontier, Forum, Tracker, Devs, Staff, Filter" />
+  <meta name="description" content="Commander Bewilderbeest's Elite Forum Tracker, showing you staff posts to the Frontier Forums" />
 
-		<meta name="keywords" content="Frontier, playstation, playstation2, xbox, pc game, games, elite, elite 4, jobs, software, developer, infestation, zarch, v2000, virus, braben, darkside, darxide, darxide-emp, mobile, xbox360, playstation3, nintendo, wii, discussion, support, lost winds, outsider, video games, family entertainment, fun, online gaming, community" />
-		<meta name="description" content="Official discussion forum for the Frontier Developments community. A place to talk about video games, entertainment and games developed by Frontier." />
+  <script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin-core.js?v=422"></script>
+  <link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css," />
 
-<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin-core.js?v=422"></script>
-	<link rel="alternate" type="application/rss+xml" title="Frontier Forums RSS Feed" href="http://forums.frontier.co.uk/external.php?type=RSS2" />
-	<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css," />
-
-	<title>Elite Forums Tracker</title>
+  <title>Elite Forums Tracker</title>
 	
-	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_generic.js?v=422"></script>
-	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_visitormessage.js?v=422"></script>
-	<script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_activitystream.js?v=422"></script>
-	<script type="text/javascript">
-
-	<!--
-	var isIE7 = navigator.userAgent.toLowerCase().indexOf('msie 7') != -1;
-	var isIE = navigator.userAgent.toLowerCase().indexOf('msie') != -1;
-	var isIE6 = navigator.userAgent.toLowerCase().indexOf('msie 6') != -1;
-	var THISUSERID = 32574;
-
-
-	vB_XHTML_Ready.subscribe(init_PostBits_Lite);
-
-	function init_PostBits_Lite()
-	{
-		var postbits = YAHOO.util.Dom.getElementsByClassName("postbit_lite", "li", "postlist");
-		for (var i = 0; i < postbits.length; i++)
-		{
-			new PostBit_Lite(postbits[i]);
-		}
-	}
-
-	function PostBit_Lite(postbit)
-	{
-		this.postbit = YAHOO.util.Dom.get(postbit);
-		this.postid = postbit.id.substr("piccom_".length);
-		this.inlinemod = new InlineModControl(this.postbit, this.postid, "imodsel");
-	}
-
-	function getParentElement(starterElement, classPattern, testTagName) {
-		var currElement = starterElement;
-		var foundElement = null;
-		while(!foundElement && (currElement = currElement.parentNode)) {
-			if ((classPattern && (currElement.className.indexOf(classPattern) != -1)) || (testTagName && (testTagName.toLowerCase() == currElement.tagName.toLowerCase()))) 
-			{
-				foundElement = currElement;
-			}
-		}
-		//go up the parentNode tree until found element with matching className
-		return foundElement;
-	}
-
-	//getParentElement
-	function tabViewPicker(anchorObject) {
-		var clickedTabId = null;
-		var tabtree = getParentElement(anchorObject,"tabslight");
-		var anchorInventory = tabtree.getElementsByTagName("a");
-
-		var tabIds = [];
-		for (var i=0; (currAnchor = anchorInventory[i]); i++) {
-			var anchorId = currAnchor.href.substring(currAnchor.href.indexOf("#") + 1, currAnchor.href.length);
-			var parentDd = getParentElement(currAnchor,null,"dd");
-			if (currAnchor == anchorObject) {
-				clickedTabId = anchorId;
-				parentDd.className = "userprof_module";
-			}
-			else
-			{
-				parentDd.className = "userprof_moduleinactive";
-			}
-			tabIds.push(anchorId);
-		}
+  <script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_generic.js?v=422"></script>
+  <script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_quick_edit_visitormessage.js?v=422"></script>
+  <script type="text/javascript" src="http://forums.frontier.co.uk/clientscript/vbulletin_activitystream.js?v=422"></script>
+  <script type="text/javascript">
 	
-		//loop thru anchors to gather all tab IDs and set appropriate selected status
-		for (var j=0; (currTabId = tabIds[j]); j++) {
-			var elem = document.getElementById("view-" + currTabId);
-			if (!elem) {continue;}
-			if (currTabId == clickedTabId) {
-				//elem.className="selected_view_section";
-				YAHOO.util.Dom.replaceClass(elem, "view_section", "selected_view_section");
-			}
-			else
-			{
-				//elem.className="view_section";
-				YAHOO.util.Dom.replaceClass(elem, "selected_view_section", "view_section");
-			}
-		}
-
-		//set appropriate status on all tabs.
-		return false;
-	}
-	//-->
-    </script>
-
+  <link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=activitystream.css,sidebar.css,forumbits.css,postbit.css,postbit-lite.css,showthread.css,member.css,user,32574" />
 	
-		<script type="text/javascript">
-		<!--
-		function goto_post_pm()
-		{
-			tabViewPicker(document.getElementById('visitor_messaging-tab'));
-			fetch_object('view-visitor_messaging').scrollIntoView();
-
-			var textarea = fetch_object('visitor_message_form_textarea');
-			if (textarea)
-			{
-				textarea.focus();
-				textarea.select();
-			}
-			return false;
-		}
-		//-->
-		</script>
+  <!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=sidebar-ie.css,member-ie.css,postbit-lite-ie.css" /><![endif]-->
 	
+  <link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?userid=32574&cssuid=0&d=1414253213&td=ltr&styleid=0&sheet=userprofile.css" />
+  <link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=additional.css" />
 
-	
+  <style type="text/css">
+  // Some custom styles to help things stand out a bit more
+  html, .body_wrapper, .above_body {
+    background-color: #fff;
+  }
 
-	
-		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=activitystream.css,sidebar.css,forumbits.css,postbit.css,postbit-lite.css,showthread.css,member.css,user,32574" />
-	
+  div.excerpt { 
+    font-size: 130%;
+  }
 
-	<style type="text/css"></style>
-
-	<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=sidebar-ie.css,member-ie.css,postbit-lite-ie.css" /><![endif]-->
-
-	
-
-	
-		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?userid=32574&cssuid=0&d=1414253213&td=ltr&styleid=0&sheet=userprofile.css" />
-		<link rel="stylesheet" type="text/css" href="http://forums.frontier.co.uk/css.php?styleid=13&langid=1&d=1414172413&td=ltr&sheet=additional.css" />
-
-<style>
-html, .body_wrapper, .above_body {
-  background-color: #fff;
-}
-
-div.excerpt { 
-  font-size: 130%;
-}
-
-.title a {
-  color: rgb(220, 70, 0) !important;
-}
-</style>
+  .title a {
+    color: rgb(220, 70, 0) !important;
+  }
+  </style>
 
 </head>
 
 <body>
 	<div class="above_body"> <!-- closing tag is in template navbar -->
 <div id="header" class="floatcontainer doc_header">
-	<div><a name="top" href="forum.php" class="logo-image"><img src="http://forums.frontier.co.uk/images/frontier/frontierLogo.png" alt="Frontier Forums" /></a></div>
+	<div><a name="top" href="http://forums.frontier.co.uk/forum.php" class="logo-image"><img src="http://forums.frontier.co.uk/images/frontier/frontierLogo.png" alt="Frontier Forums" /></a></div>
 </div><!-- closing div for above_body -->
 
 <div class="body_wrapper">
