@@ -5,7 +5,7 @@ namespace :scraper do
     if ENV['USE_MECHANIZE']
       puts "Using Mechanize to authenticate requests"
       agent = Mechanize.new
-      url = "http://forums.frontier.co.uk/forum.php"
+      url = "https://forums.frontier.co.uk/forum.php"
       page = agent.get(url)
       form = agent.page.forms.first
       form.vb_login_username = ENV['FORUM_USERNAME']

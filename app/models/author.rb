@@ -1,3 +1,4 @@
+require 'net/https'
 require 'open-uri'
 
 class Author < ActiveRecord::Base
@@ -5,7 +6,7 @@ class Author < ActiveRecord::Base
   validates_uniqueness_of :forum_id
   default_scope { order('forum_id ASC') }
   
-  FORUM_SITE = "http://forums.frontier.co.uk/"
+  FORUM_SITE = "https://forums.frontier.co.uk/"
   AUTHOR_STATS_URL = "#{FORUM_SITE}member.php?u=%d"
   AUTHOR_POSTS_URL = "#{FORUM_SITE}search.php?do=finduser&userid=%d&contenttype=vBForum_Post&showposts=1"
   AUTHOR_ACTIVITY_URL = "#{FORUM_SITE}/member.php?u=%d&tab=activitystream&type=user"
