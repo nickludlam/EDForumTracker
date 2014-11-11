@@ -37,8 +37,15 @@ class Author < ActiveRecord::Base
           else
             # Thread query
             logger.warn("Found a new thread URL #{thread_url}. Opening...")
-            thread_start_doc = Nokogiri::HTML(open(FORUM_SITE + thread_url))
+            thread_start_page = agent.get(FORUM_SITE + thread_url)
+            thread_start_doc = Nokogiri::HTML(thread_start_page.body)
             thread_anchor = thread_start_doc.css("span.nodecontrols a.postcounter")
+            
+            if thread_anchor.empty?
+              logger.warn("Failed to match span.nodecontrols a.postcounter from #{thread_url}")
+              break
+            end
+
             thread_url = thread_anchor.attribute("href").text
             
             if post_match = thread_url.match(/post(\d+)/)
