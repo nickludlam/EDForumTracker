@@ -4,7 +4,7 @@ class PostsController < ApplicationController
            'These things don\'t write themselves, you know!', 'Nope, nothing\'s changed.',
            'Maybe you could post something yourself!', 'Go stick your head in a pig!', 'Look, Thargoids!',
            'Busy day, I see.', 'No, nothing\'s changed!', 'There\'s always old episodes of Lave Radio!',
-           'Nothing to seem, move along.', 'This isn\'t the page you\'re looking for, move along.',
+           'Nothing to see, move along.', 'This isn\'t the page you\'re looking for, move along.',
            'Try reddit.com/r/EliteDangerous instead.', '100 CR fine for loitering near this tracker!',
            'Warning! Flight Assist off!', 'Mass locked!', 'Clearly no-one\'s said \'Yaw is nerfed\' today.',
            'The mugs must be flying in Cambridge.', 'They must all be fishing on Chango.',
