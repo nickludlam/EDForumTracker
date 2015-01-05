@@ -5,7 +5,7 @@ class PostsController < ApplicationController
            'Maybe you could post something yourself!', 'Go stick your head in a pig!', 'Look, Thargoids!',
            'Busy day, I see.', 'No, nothing\'s changed!', 'There\'s always old episodes of Lave Radio!',
            'Nothing to see, move along.', 'This isn\'t the page you\'re looking for, move along.',
-           'Try reddit.com/r/EliteDangerous instead.', '100 CR fine for loitering near this tracker!',
+           'Try reddit.com/r/EliteDangerous instead.', '200 CR fine for loitering near this tracker!',
            'Warning! Flight Assist off!', 'Mass locked!', 'Clearly no-one\'s said \'Yaw is nerfed\' today.',
            'The mugs must be flying in Cambridge.', 'They must all be fishing on Chango.',
            'Obviously there\'s not enough discussion about \'griefing\' today.',
@@ -13,7 +13,10 @@ class PostsController < ApplicationController
            'New posts have unfortunately been interdicted en route.', 'WARNING: Your reputation is too low to view new posts.',
            'Commander you do not have the correct permit to view new posts.', 'An emergency at Chango Dock has sadly delayed any new information.', 'Damnn, nothing! Why not go buy some ship paint jobs from store.zaonce.net?',
            'Supply of new dev posts has hit an all time low.', 'Due to unprecedented demand, new posts are restricted!',
-           'Hostile Commander detected. Please consider some philanthropic missions!', 'Right on, Commander!'
+           'Hostile Commander detected. Please consider some philanthropic missions!', 'Right on, Commander!',
+           'The devs are hopefully busy digging a mile wide hole to add some depth.',
+           'Don\'t forget to check elitedangerous.com/news/galnet too!',
+           'Friendship drive charging...'
           ]
   
   def index
