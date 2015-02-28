@@ -4,8 +4,10 @@ require 'open-uri'
 class Author < ActiveRecord::Base
   has_many :posts, dependent: :delete_all
   validates_uniqueness_of :forum_id
-  default_scope { order('forum_id ASC') }
   
+  default_scope { order('forum_id ASC') }
+  scope :by_post_count, -> { order('posts_count DESC') }
+    
   FORUM_SITE = "https://forums.frontier.co.uk/"
   AUTHOR_STATS_URL = "#{FORUM_SITE}member.php?u=%d"
   AUTHOR_POSTS_URL = "#{FORUM_SITE}search.php?do=finduser&userid=%d&contenttype=vBForum_Post&showposts=1"

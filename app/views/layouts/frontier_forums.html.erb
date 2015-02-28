@@ -90,7 +90,7 @@
         Search for
         <%= text_field_tag :search, params[:search], class: "span2", placeholder: "something" %>
         from
-        <%= select_tag "author_id", options_from_collection_for_select(Author.all, "id", "name", @author_id), { :prompt => 'all authors' }  %>
+        <%= select_tag "author_id", options_from_collection_for_select(Author.unscoped.by_post_count.all, "id", "name", @author_id), { :prompt => 'all authors' }  %>
         <button type="submit" class="btn">Go</button>
       </div>
     <% end %>
