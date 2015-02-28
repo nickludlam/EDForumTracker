@@ -28,16 +28,16 @@
   <style type="text/css">
   /* Some custom styles to help things stand out a bit more */
   
+  .btn {
+      padding: 2px;
+      margin: 2px;
+  } 
+  
   .body_wrapper {
     margin-top: 20px;
     border-top: 2px solid #999;
   }
   
-/*  .body_wrapper, .above_body {
-    background-color: #000;
-    padding-bottom: 20px;
-  }
-*/
   div.excerpt { 
     font-size: 130%;
   }
@@ -52,6 +52,12 @@
   
   .eft_footer {
     text-align: center;
+  }
+
+  .search-form {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    padding: 5px;
   }
   </style>
 
@@ -75,6 +81,20 @@
 
 <div class="body_wrapper">
   <ul id="activitylist">
+    
+    <p>Welcome to <strong>CMDR Bewilderbeest</strong>'s dev tracker. This site tracks posts made by Frontier employees on the official forums.</p>
+    <br/>
+    
+    <%= form_tag(search_posts_path, :method => "get", class: "search-form", id: "search-form") do %>
+      <div class="input-append">
+        Search for
+        <%= text_field_tag :search, params[:search], class: "span2", placeholder: "something" %>
+        from
+        <%= select_tag "author_id", options_from_collection_for_select(Author.all, "id", "name", @author_id), { :prompt => 'all authors' }  %>
+        <button type="submit" class="btn">Go</button>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </ul>
 </div>

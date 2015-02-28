@@ -1,0 +1,17 @@
+<% if @posts.empty? %>
+  <div id="message" style="margin-top: 30px">
+    <p>Couldn't find anything, sorry!</p>
+  </div>
+<% else %>
+  <div>
+    <br/><p>Your search for '<%= params[:search] %>' found <%= pluralize @posts.count, "post" %>.</p>
+  </div>
+  
+  <div id="posts" style="margin-top: 30px">
+    <% @posts.each do |p| %>
+      <%= raw p.body %>
+    <% end %>
+  </div>
+<% end %>
+
+

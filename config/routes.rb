@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     collection do
+      get 'search'
       post 'clear_session'
     end
   end

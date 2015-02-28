@@ -32,6 +32,18 @@ class PostsController < ApplicationController
     session[:last_post_id] = @posts.first.forum_post_id unless @posts.empty?
   end
   
+  def search
+    @author_id = params[:author_id] if params[:author_id].present?
+    
+    if Post::FTS_ENABLED
+      @posts = Post.find_by_fts_search(params[:search], @author_id)
+    else
+      @posts = Post.where(nil) # creates an anonymous scope
+      @posts = @posts.matches_body(params[:search]) unless params[:search].blank?
+      @posts = @posts.author(params[:author_id]) unless params[:author_id].blank?
+    end
+  end
+  
   def clear_session
     session.delete(:last_post_id)
     redirect_to :posts
