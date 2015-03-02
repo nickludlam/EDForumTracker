@@ -27,7 +27,6 @@ class Author < ActiveRecord::Base
     logger.debug("Found #{post_elements.count} post elements to traverse")
     if post_elements.count == 0
       logger.warn("Found no posts!")
-      logger.warn(page.body)
     else
       post_elements.each do |post|
         thread_link = post.css("div.fulllink a")
