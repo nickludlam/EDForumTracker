@@ -27,14 +27,16 @@
 
   <style type="text/css">
   /* Some custom styles to help things stand out a bit more */
-  
+  strong {
+    color: #000;
+  }
   .btn {
       padding: 2px;
       margin: 2px;
   } 
   
   .body_wrapper {
-    margin-top: 20px;
+    margin-top: 10px;
     border-top: 2px solid #999;
   }
   
@@ -47,6 +49,10 @@
   }
   
   .below_body, #footer_morecopyright {
+    width: 100%;
+    padding: 20px 20px;
+    border-top: 1px solid #ccc;
+    
     background-color: white;
   }
   
@@ -58,6 +64,17 @@
     background-color: #EEE;
     border: 1px solid #DDD;
     padding: 5px;
+  }
+  
+  #header-block {
+    float: right;
+    margin: 40px 0px 0px 0px;
+    width: 400px;
+    color: #aaa;
+  }
+  
+  #header-block a {
+    color: #fa0;
   }
   </style>
 
@@ -75,15 +92,13 @@
 
 <body>
 	<div class="above_body"> <!-- closing tag is in template navbar -->
-<div id="header" class="floatcontainer doc_header">
+<div id="header" class="floatcontainer">
 	<div><a name="top" href="http://forums.frontier.co.uk/forum.php" class="logo-image"><img src="http://forums.frontier.co.uk/images/frontier/frontierLogo.png" alt="Frontier Forums" /></a></div>
+  <div id="header-block">Come join the Elite Dangerous community on QuakeNet's IRC servers! You'll find us in <a href="http://webchat.quakenet.org/?channels=Elite-Dangerous,lave-radio">#Elite-Dangerous and #lave-radio</a>. </div>
 </div><!-- closing div for above_body -->
 
 <div class="body_wrapper">
   <ul id="activitylist">
-    
-    <p>Welcome to <strong>CMDR Bewilderbeest</strong>'s dev tracker. This site tracks posts made by Frontier employees on the official forums.</p>
-    <br/>
     
     <%= form_tag(search_posts_path, :method => "get", class: "search-form", id: "search-form") do %>
       <div class="input-append">
@@ -94,6 +109,9 @@
         <button type="submit" class="btn">Go</button>
       </div>
     <% end %>
+
+    <br/>
+    <p>Welcome to <strong>Bewilderbeest</strong>'s dev tracker. This site tracks posts made by Frontier employees on the official forums, and each time you come back, it'll show you all the new posts made since your last visit.</p>
     
     <%= yield %>
   </ul>
@@ -101,7 +119,7 @@
 
 <div class="below_body">
   <div class="eft_footer">
-      <a href="https://github.com/nickludlam/EDForumTracker">Made</a> in 2014 by <strong><a href="http://nick.recoil.org/">Commander Bewilderbeest</a></strong>, with moral support and inspiration from <strong>Commander Yan</strong> and <strong>Commander Athan</strong>.
+    <a href="https://github.com/nickludlam/EDForumTracker">Made</a> by <strong><a href="http://nick.recoil.org/">Commander Bewilderbeest</a></strong>, with moral support and inspiration from <strong>Commander Yan</strong> and <strong>Commander Athan</strong>.
   </div>
 </div>
 
